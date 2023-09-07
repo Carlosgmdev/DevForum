@@ -9,7 +9,7 @@ public record AnswerDto(
         Long id,
         String message,
         LocalDateTime created_at,
-        UserDto author,
+        UserDto user,
         TopicAnswerDto topic
 ) {
     public AnswerDto(Answer answer) {
@@ -18,8 +18,8 @@ public record AnswerDto(
                 answer.getAnswer(),
                 answer.getCreated_at(),
                 new UserDto(
-                        answer.getAuthor().getId(),
-                        answer.getAuthor().getUsername()
+                        answer.getUser().getId(),
+                        answer.getUser().getUsername()
                 ),
                 new TopicAnswerDto(
                         answer.getTopic().getId(),

@@ -1,4 +1,4 @@
 package com.carlosg.devforum.domain.users;
 
-public record UserSignIn(String username, String password) {
+public record UserLogin(String username, String password) {
 }

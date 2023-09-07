@@ -30,11 +30,9 @@ public class Answer {
     private LocalDateTime created_at;
 
     @ManyToOne
-    @NotBlank(message = "Author is required")
-    private User author;
+    private User user;
 
     @ManyToOne
-    @NotBlank(message = "Topic is required")
     private Topic topic;
 
 }

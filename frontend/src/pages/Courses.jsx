@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import CoursesList from '../components/CoursesList'
+import CourseCard from '../components/CourseCard'
 
-const Courses = () => {
+const Courses = ({user}) => {
 
   const [courses, setCourses] = useState([])
-  const [loading, setLoading] = useState(true)
+  const {id, username, email, token} = user;
 
   useEffect(() => {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjbWFydGluZXoiLCJpc3MiOiJkZXZmb3J1bSIsImlkIjoyOCwiZXhwIjoxNjk0MDQ1NDIyfQ.zcbqmy4AYlPM02aVpWhHUJytr7EQiQpxkirRLYPNYJg';
-    const headers = {
-      Authorization: `Bearer ${token}`
-    };
-  
     fetch('http://localhost:8080/courses', {
-      headers: headers
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setCourses(data);
-        setLoading(false);
       })
       .catch(error => console.log(error));
   }, []);
@@ -27,8 +22,17 @@ const Courses = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-slate-700 mb-6">Courses</h1>
-      <CoursesList />
+      <h1 className="text-3xl text-slate-700 mb-8">Courses</h1>
+      <div className='grid gap-6 grid-cols-3'>
+      {
+        courses.map(course => (
+          <CourseCard
+            course={course}
+            key={course.id}
+          />
+        ))
+      }
+      </div>
     </div>
   )
 }

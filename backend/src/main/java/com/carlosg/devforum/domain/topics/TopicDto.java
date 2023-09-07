@@ -11,7 +11,7 @@ public record TopicDto(
         String message,
         Boolean solved,
         LocalDateTime created_at,
-        UserDto author,
+        UserDto user,
         Course course
 ) {
     public TopicDto(Topic topic) {
@@ -22,8 +22,8 @@ public record TopicDto(
                 topic.getSolved(),
                 topic.getCreated_at(),
                 new UserDto(
-                        topic.getAuthor().getId(),
-                        topic.getAuthor().getUsername()
+                        topic.getUser().getId(),
+                        topic.getUser().getUsername()
                 ),
                 topic.getCourse()
         );

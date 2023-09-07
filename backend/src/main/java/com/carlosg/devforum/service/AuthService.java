@@ -23,6 +23,8 @@ public class AuthService implements UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
+
+
     public UserDto signup(User user) {
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPassword);

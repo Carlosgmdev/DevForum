@@ -1,7 +1,8 @@
 package com.carlosg.devforum.controller;
 
 import com.carlosg.devforum.domain.users.User;
-import com.carlosg.devforum.domain.users.UserSignIn;
+import com.carlosg.devforum.domain.users.UserAuthDto;
+import com.carlosg.devforum.domain.users.UserLogin;
 import com.carlosg.devforum.infra.security.JWTDto;
 import com.carlosg.devforum.infra.security.TokenService;
 import com.carlosg.devforum.service.AuthService;
@@ -31,11 +32,14 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity authenticate(@RequestBody @Valid UserSignIn userSignIn) {
-        Authentication authToken = new UsernamePasswordAuthenticationToken(userSignIn.username(), userSignIn.password());
+    public ResponseEntity<UserAuthDto> authenticate(@RequestBody @Valid UserLogin userLogin) {
+        Authentication authToken = new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password());
         var authUser = authenticationManager.authenticate(authToken);
         var JWTToken = tokenService.generateToken((User) authUser.getPrincipal());
-        return ResponseEntity.ok(new JWTDto(JWTToken));
+        return ResponseEntity.ok(new UserAuthDto(
+                (User) authUser.getPrincipal(),
+                JWTToken
+        ));
     }
 
     @PostMapping("/signup")

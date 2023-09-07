@@ -1,15 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({username, setUser}) => {
+
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    setUser({})
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
+
   return (
     <div className="flex gap-4">
       <div className="flex items-center gap-1">
         <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-        <p className="text-slate-700">cmartinez</p>
+        <p className="text-slate-700">{username}</p>
       </div>
-      <button className="bg-slate-700 transition-colors hover:bg-slate-800 text-white px-2 py-1 rounded-md">
-        Logout
-      </button>
+      <img src="/src/assets/log-out-outline.svg" alt="Logout image"  className="w-6 cursor-pointer" onClick={e => handleLogout(e)}/>
     </div>
   );
 };

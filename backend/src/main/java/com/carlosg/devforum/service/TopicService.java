@@ -34,4 +34,18 @@ public class TopicService {
         }
         return new TopicDto(topicRepository.save(topic));
     }
+
+    public List<TopicDto> getCourseTopics(Long id) {
+        List<Topic> topics = topicRepository.findByCourseId(id);
+        return topics.stream()
+                .map(TopicDto::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<TopicDto> getUserTopics(Long id) {
+        List<Topic> topics = topicRepository.findByUserId(id);
+        return topics.stream()
+                .map(TopicDto::new)
+                .collect(Collectors.toList());
+    }
 }

@@ -17,5 +17,7 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-
+    public Course getCourse(Long id) {
+        return courseRepository.findById(id).orElseThrow();
+    }
 }

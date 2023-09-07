@@ -4,6 +4,7 @@ import com.carlosg.devforum.domain.answers.Answer;
 import com.carlosg.devforum.domain.answers.AnswerDto;
 import com.carlosg.devforum.repository.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,13 @@ public class AnswerService {
 
     public List<AnswerDto> getAnswers() {
         List<Answer> answers = answerRepository.findAll();
+        return answers.stream()
+                .map(AnswerDto::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<AnswerDto> getUserAnswers(Long id) {
+        List<Answer> answers = answerRepository.findByUserId(id);
         return answers.stream()
                 .map(AnswerDto::new)
                 .collect(Collectors.toList());

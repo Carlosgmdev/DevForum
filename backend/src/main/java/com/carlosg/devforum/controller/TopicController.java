@@ -24,6 +24,20 @@ public class TopicController {
         );
     }
 
+    @GetMapping("/course/{id}")
+    public ResponseEntity<List<TopicDto>> getCourseTopics(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                topicService.getCourseTopics(id)
+        );
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<TopicDto>> getUserTopics(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                topicService.getUserTopics(id)
+        );
+    }
+
     @PostMapping
     public ResponseEntity<TopicDto> createTopic(@RequestBody @Valid Topic topic) {
         return ResponseEntity.ok(

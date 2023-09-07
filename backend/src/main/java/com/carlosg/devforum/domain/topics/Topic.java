@@ -36,7 +36,7 @@ public class Topic {
     private LocalDateTime created_at;
 
     @ManyToOne
-    private User author;
+    private User user;
 
     @ManyToOne
     private Course course;

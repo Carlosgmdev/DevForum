@@ -5,16 +5,12 @@ import com.carlosg.devforum.domain.courses.Course;
 import com.carlosg.devforum.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
-@CrossOrigin(origins = "http://localhost:5173")
 public class CourseController {
 
     @Autowired
@@ -26,4 +22,12 @@ public class CourseController {
                 coursesService.getCourses()
         );
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Course> getCourse(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                coursesService.getCourse(id)
+        );
+    }
+
 }
