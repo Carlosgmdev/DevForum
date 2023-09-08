@@ -11,12 +11,12 @@ const TopicCard = ({ topic }) => {
 
   return (
     <Link
-      className="bg-white rounded-lg shadow-md p-6 hover:scale-105 transition-all"
+      className="bg-white shadow-lg  rounded-lg p-4  gap-6 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700"
       to={`/dashboard/topics/${id}`}
     >
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold text-slate-700">{name}</h2>
-        <p className="italic">{formattedDate}</p>
+        <h2 className="text-xl font-bold">{name}</h2>
+        <p className="italic">{`Created at ${formattedDate}`}</p>
       </div>
       <div className="flex justify-between items-center mt-4">
         <div>
@@ -25,8 +25,8 @@ const TopicCard = ({ topic }) => {
           </p>
           <p>Course {course.name}</p>
         </div>
-        <p className={`text-lg ${solved ? "text-green-500" : "text-red-500"}`}>
-          {solved ? "Solved" : "Not Solved"}
+        <p className={`text-lg ${solved ? "text-green-400" : "text-red-400"}`}>
+          {solved ? "✓ Solved" : "Pending"}
         </p>
       </div>
     </Link>

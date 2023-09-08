@@ -9,6 +9,7 @@ import Topics from "./pages/Topics";
 import Answers from "./pages/Answers";
 import Home from "./pages/Home";
 import Course from "./pages/Course";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
 
@@ -29,7 +30,7 @@ const App = () => {
           <Route path="topics" element={<Topics user={user}/>} />
           <Route path="answers" element={<Answers user={user}/>} />
         </Route>
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </BrowserRouter>
   );

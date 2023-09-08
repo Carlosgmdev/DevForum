@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import TopicCard from '../components/TopicCard';
+import AnswerCard from '../components/AnswerCard';
 
 const Answers = ({user}) => {
   const [answers, setAnswers] = useState([]);
@@ -17,27 +17,22 @@ const Answers = ({user}) => {
       .then(response => response.json())
       .then(data => {
         setAnswers(data);
-        console.log(data);
       })
       .catch(error => console.log(error));
   }, []);
 
   return (
     <div>
-      <div className='flex justify-between items-center mb-8'>
-        <h1 className="text-3xl text-slate-700 mb-6">My Topics</h1>
-        <Link 
-          className="rounded-lg cursor-pointer bg-slate-700 transition-colors hover:bg-slate-800 text-white px-4 py-2">
-          New Topic
-        </Link>
-      </div>
+
+        <h1 className="text-3xl">My Answers</h1>
+
       <div>
       <div className='flex flex-col gap-4'>
       {
-        answers.map(topic => (
-          <TopicCard
-            key={topic.id}
-            topic={topic}
+        answers.map(answer => (
+          <AnswerCard
+            key={answer.id}
+            answer={answer}
           />
         ))
       }

@@ -9,7 +9,6 @@ const Login = ({setUser}) => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    console.log(JSON.stringify({username, password}))
     fetch('http://localhost:8080/auth/login', {
       method: 'POST',
       headers: {
@@ -48,7 +47,7 @@ const Login = ({setUser}) => {
       </button>
       <p className="text-center mt-4">
         Don't have an account?{" "}
-        <Link to="/signup" className="text-slate-700 hover:underline">
+        <Link to="/signup" className="hover:underline">
           Signup
         </Link>
       </p>

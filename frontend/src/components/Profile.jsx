@@ -16,7 +16,7 @@ const Profile = ({username, setUser}) => {
     <div className="flex gap-4">
       <div className="flex items-center gap-1">
         <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-        <p className="text-slate-700">{username}</p>
+        <p>{username}</p>
       </div>
       <img src="/src/assets/log-out-outline.svg" alt="Logout image"  className="w-6 cursor-pointer" onClick={e => handleLogout(e)}/>
     </div>

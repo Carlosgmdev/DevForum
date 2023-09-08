@@ -16,6 +16,13 @@ public class CourseController {
     @Autowired
     private CourseService coursesService;
 
+    @PostMapping
+    public ResponseEntity<List<Course>> createCourses(@RequestBody List<Course> courses) {
+        return ResponseEntity.ok(
+                coursesService.createCourses(courses)
+        );
+    }
+
     @GetMapping
     public ResponseEntity<List<Course>> getCourses() {
         return ResponseEntity.ok(

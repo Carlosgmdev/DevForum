@@ -48,4 +48,10 @@ public class TopicService {
                 .map(TopicDto::new)
                 .collect(Collectors.toList());
     }
+
+    public List<TopicDto> createTopics(List<Topic> topics) {
+        return topicRepository.saveAll(topics).stream()
+                .map(TopicDto::new)
+                .collect(Collectors.toList());
+    }
 }

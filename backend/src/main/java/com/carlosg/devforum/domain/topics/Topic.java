@@ -48,4 +48,6 @@ public class Topic {
     public void setSolved(boolean b) {
         this.solved = b;
     }
+
+
 }

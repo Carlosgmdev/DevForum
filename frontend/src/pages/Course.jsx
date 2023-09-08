@@ -37,7 +37,7 @@ const Course = ({user}) => {
   return (
     <div>
       <div className='flex justify-between items-center mb-8'>
-        <h1 className="text-3xl text-slate-700 mb-6">{`Topics - ${name}`}</h1>
+        <h1 className="text-3xl">{`Topics - ${name}`}</h1>
         <Link 
           className="rounded-lg cursor-pointer bg-slate-700 transition-colors hover:bg-slate-800 text-white px-4 py-2">
           New Topic
