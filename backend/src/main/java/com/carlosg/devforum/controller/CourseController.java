@@ -3,6 +3,7 @@ package com.carlosg.devforum.controller;
 
 import com.carlosg.devforum.domain.courses.Course;
 import com.carlosg.devforum.service.CourseService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +18,12 @@ public class CourseController {
     private CourseService coursesService;
 
     @PostMapping
-    public ResponseEntity<List<Course>> createCourses(@RequestBody List<Course> courses) {
+    public ResponseEntity<List<Course>> createCourses(@RequestBody @Valid List<Course> courses) {
         return ResponseEntity.ok(
                 coursesService.createCourses(courses)
         );
     }
+
 
     @GetMapping
     public ResponseEntity<List<Course>> getCourses() {

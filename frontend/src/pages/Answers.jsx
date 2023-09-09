@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import AnswerCard from '../components/AnswerCard';
+import Title from '../components/Title';
 
 const Answers = ({user}) => {
   const [answers, setAnswers] = useState([]);
@@ -24,7 +25,7 @@ const Answers = ({user}) => {
   return (
     <div>
 
-        <h1 className="text-3xl">My Answers</h1>
+      <Title>My Answers</Title>
 
       <div>
       <div className='flex flex-col gap-4'>

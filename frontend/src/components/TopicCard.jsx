@@ -11,7 +11,7 @@ const TopicCard = ({ topic }) => {
 
   return (
     <Link
-      className="bg-white shadow-lg  rounded-lg p-4  gap-6 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700"
+      className="bg-white shadow-lg  rounded-lg p-4  gap-6 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
       to={`/dashboard/topics/${id}`}
     >
       <div className="flex justify-between items-center mb-4">

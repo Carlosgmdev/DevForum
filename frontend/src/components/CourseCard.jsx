@@ -7,7 +7,7 @@ const CourseCard = ({ course }) => {
 
   return (
     <Link
-      className="bg-white shadow-lg rounded-lg p-4 flex items-center justify-between hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700"
+      className="bg-white shadow-lg rounded-lg p-4 flex items-center justify-between hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
       to={`${id}`}
     >
       <h1 className="text-lg">{name}</h1>

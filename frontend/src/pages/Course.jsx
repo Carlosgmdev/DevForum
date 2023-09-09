@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Topic from '../components/TopicCard';
+import Title from '../components/Title';
 
 const Course = ({user}) => {
   const { courseId } = useParams();
@@ -37,7 +38,7 @@ const Course = ({user}) => {
   return (
     <div>
       <div className='flex justify-between items-center mb-8'>
-        <h1 className="text-3xl">{`Topics - ${name}`}</h1>
+        <Title>{`Topics - ${name}`}</Title>
         <Link 
           className="rounded-lg cursor-pointer bg-slate-700 transition-colors hover:bg-slate-800 text-white px-4 py-2">
           New Topic

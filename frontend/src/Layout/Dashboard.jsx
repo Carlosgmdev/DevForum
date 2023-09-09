@@ -16,7 +16,7 @@ const Dashboard = ({user, setUser}) => {
   const {id, username, email, token} = user;
 
   return (
-    <div className="h-screen w-full  bg-slate-100 text-slate-600  px-14 py-4 flex flex-col gap-6 dark:bg-slate-950 dark:text-slate-200">
+    <div className="h-screen w-full  bg-slate-100 text-slate-600  px-14 py-4 flex flex-col gap-4 dark:bg-slate-950 dark:text-slate-200">
       <Header username={username} setUser={setUser} />
       <div className="overflow-hidden">
         <Outlet />

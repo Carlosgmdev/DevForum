@@ -1,9 +1,10 @@
 import React from "react";
+import Title from "../components/Title";
 
 const Home = () => {
   return (
     <div>
-      <h1 className="text-3xl">Latest Topics</h1>
+      <Title>Home</Title>
     </div>
   );
 };

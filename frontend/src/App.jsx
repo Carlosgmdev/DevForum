@@ -19,7 +19,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Auth/>}>
+        <Route path="/" element={<Auth user={user}/>}>
           <Route path="login" element={<Login setUser={setUser}/>}/>
           <Route path="signup" element={<Signup/>}/>
         </Route>

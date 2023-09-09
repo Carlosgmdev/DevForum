@@ -11,7 +11,7 @@ const AnswerCard = ({ answer }) => {
 
   return (
     <Link
-      className="bg-white shadow-lg rounded-lg p-4 gap-6 hover:bg-slate-300"
+      className="bg-white shadow-lg rounded-lg p-4 gap-6 hover:bg-slate-200"
       to={`/dashboard/topics/${topic.id}`}
     >
       <div className="flex justify-between items-center mb-4">

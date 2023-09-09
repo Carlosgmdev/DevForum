@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CourseCard from '../components/CourseCard'
+import Title from '../components/Title';
 
 const Courses = ({user}) => {
 
@@ -32,7 +33,7 @@ const Courses = ({user}) => {
 
   return (
     <div className='flex flex-col gap-4 h-full'>
-      <h1 className="text-3xl">Courses</h1>
+      <Title>Courses</Title>
       <div className='flex justify-center'>
           <input 
             type="text "

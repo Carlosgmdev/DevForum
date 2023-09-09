@@ -47,7 +47,7 @@ const Login = ({setUser}) => {
       </button>
       <p className="text-center mt-4">
         Don't have an account?{" "}
-        <Link to="/signup" className="hover:underline">
+        <Link to="/signup" className="font-bold hover:underline">
           Signup
         </Link>
       </p>
