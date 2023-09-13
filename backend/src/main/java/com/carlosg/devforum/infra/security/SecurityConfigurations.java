@@ -37,6 +37,8 @@ public class SecurityConfigurations {
                 .authorizeRequests()
                 .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/signup")
                 .permitAll()
+                .requestMatchers(HttpMethod.GET,"/auth/validate-token", "/auth/validate-username", "/auth/validate-email")
+                .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);

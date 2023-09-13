@@ -38,7 +38,7 @@ public class TopicController {
         );
     }
 
-    /*
+
     @PostMapping
     public ResponseEntity<TopicDto> createTopic(@RequestBody @Valid Topic topic) {
         return ResponseEntity.ok(
@@ -46,13 +46,14 @@ public class TopicController {
         );
     }
 
-     */
 
+    /*
     @PostMapping
     public ResponseEntity<List<TopicDto>> createTopics(@RequestBody @Valid List<Topic> topics) {
         return ResponseEntity.ok(
                 topicService.createTopics(topics)
         );
     }
+     */
 
 }

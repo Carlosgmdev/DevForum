@@ -1,8 +1,10 @@
 import React from "react";
 
-const Form = () => {
+const Form = ({children}) => {
   return (
-    <form className="flex flex-col"></form>
+    <form className="flex flex-col gap-4 w-full">
+      {children}
+    </form>
   );
 };
 

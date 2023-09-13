@@ -31,4 +31,23 @@ public class AuthService implements UserDetailsService {
         var newUser = userRepository.save(user);
         return new UserDto(newUser);
     }
+
+    public Boolean validateUsername(String username) {
+        var foundUser = userRepository.findByUsername(username);
+        if(foundUser != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Boolean validateEmail(String email) {
+        var foundUser = userRepository.findByEmail(email);
+        System.out.println(foundUser);
+        if(foundUser != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

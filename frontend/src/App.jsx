@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "./Layout/Auth";
 import Login from "./components/Login";
@@ -25,9 +25,9 @@ const App = () => {
         </Route>
         <Route path="/dashboard/" element={<Dashboard user={user} setUser={setUser}/>}>
           <Route path="home" element={<Home user={user} />} />
-          <Route path="courses" element={<Courses user={user} />} />
+          <Route path="courses" element={<Courses user={user}/>} />
           <Route path="courses/:courseId" element={<Course user={user}/>} />
-          <Route path="topics" element={<Topics user={user}/>} />
+          <Route path="topics" element={<Topics user={user} />}/>
           <Route path="answers" element={<Answers user={user}/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />

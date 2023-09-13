@@ -1,5 +1,10 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Input from "./Input";
+import Button from "./Button";
+import {toast } from "react-toastify";
+import Form from "./Form";
+
 
 const Login = ({setUser}) => {
 
@@ -22,36 +27,33 @@ const Login = ({setUser}) => {
         localStorage.setItem('user', JSON.stringify(data))
         navigate('/dashboard/home');
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        toast.error("Invalid username or password!", {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      })
   }
 
 
   return (
-    <form className="flex flex-col gap-4 w-full">
-      <input
-        className="w-full px-3 py-2 border rounded-lg"
-        type="text"
-        placeholder="Username"
-        onChange={e => setUsername(e.target.value)}
-      />
-      <input
-        className="w-full px-3 py-2 border rounded-lg"
-        type="password"
-        placeholder="Password"
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button className="w-full px-3 py-2 border rounded-lg cursor-pointer bg-slate-700 transition-colors hover:bg-slate-800 text-white"
-        onClick={e => handleLogin(e)}
-      >
-        Login
-      </button>
+    <Form>
+      <Input type='text' placeholder="Username" set={setUsername} />
+      <Input type='password' placeholder="Password" set={setPassword} />
+      <Button action={(e) => handleLogin(e)}>Login</Button>
       <p className="text-center mt-4">
         Don't have an account?{" "}
         <Link to="/signup" className="font-bold hover:underline">
           Signup
         </Link>
       </p>
-    </form>
+    </Form>
   );
 };
 
