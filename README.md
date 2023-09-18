@@ -20,13 +20,14 @@ Con la aplicación DevForum, los estudiantes pueden:
 - Base de Datos: MySQL
  ![MySQL](https://img.icons8.com/color/48/000000/mysql-logo.png) 
 - Estilos: Tailwind CSS
- ![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwindcss.png) 
+ ![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwindcss.png)
+-Seguridad con JsonWebToken
+ ![JWT](https://jwt.io/img/pic_logo.svg)
 - Rutas: React Router
  ![React Router](https://img.icons8.com/color/48/000000/react-native.png) 
 - Comunicación con API: Fetch API
  ![Fetch API](https://img.icons8.com/plasticine/48/000000/api.png)
--Seguridad con JsonWebToken
- ![JWT](https://jwt.io/img/pic_logo.svg)
+
 
 
 ## Capturas de Pantalla
