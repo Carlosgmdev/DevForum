@@ -24,8 +24,8 @@ Con la aplicación DevForum, los estudiantes pueden:
 - Rutas: React Router
  ![React Router](https://img.icons8.com/color/48/000000/react-native.png) 
 - Comunicación con API: Fetch API
- ![Fetch API](https://img.icons8.com/plasticine/48/000000/api.png) 
- -Seguridad con JsonWebToken
+ ![Fetch API](https://img.icons8.com/plasticine/48/000000/api.png)
+-Seguridad con JsonWebToken
  ![JWT](https://jwt.io/img/pic_logo.svg)
 
 
