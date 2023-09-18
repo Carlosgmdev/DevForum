@@ -26,7 +26,7 @@ Con la aplicación DevForum, los estudiantes pueden:
 - Comunicación con API: Fetch API
  ![Fetch API](https://img.icons8.com/plasticine/48/000000/api.png)
 - Seguridad con Json Web Token
- ![Fetch API](https://img.icons8.com/plasticine/48/000000/api.png)
+ ![JWT](https://jwt.io/img/pic_logo.svg)
 
 
 ## Capturas de Pantalla
