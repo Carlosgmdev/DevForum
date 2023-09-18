@@ -8,15 +8,29 @@ import Button from "./Button";
 import {toast } from "react-toastify";
 
 
-const TopicModal = ({ user, setTopicModal, setTopics }) => {
+const TopicModal = ({ user, setTopicModal, setTopics, defCourse, topic, setTopic }) => {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState([]); 
   const [courseId, setCourseId] = useState(0);
   const { id, token } = user;
+  const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8080/courses', {
+
+    if(topic) {
+      setTitle(topic.name);
+      setMessage(topic.message);
+      setCourse(topic.course);
+      setCourseId(topic.course.id);
+      setIsEdit(true);
+    }
+
+    if(defCourse) {
+      setCourses([defCourse]);
+    } else {
+      fetch('http://localhost:8080/courses', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -26,6 +40,7 @@ const TopicModal = ({ user, setTopicModal, setTopics }) => {
         setCourses(data);
       })
       .catch(error => console.log(error));
+    }
   }, []);
 
   const handleSubmit = (e) => {
@@ -48,6 +63,11 @@ const TopicModal = ({ user, setTopicModal, setTopics }) => {
       user: { id },
       course: { id: courseId },
     };
+
+    if(isEdit) {
+      newTopic.id = topic.id;
+    }
+
     fetch("http://localhost:8080/topics", {
       method: "POST",
       headers: {
@@ -59,9 +79,13 @@ const TopicModal = ({ user, setTopicModal, setTopics }) => {
       .then((response) => response.json())
       .then((data) => {
         if(data.id) {
-          setTopics(prevTopics => [...prevTopics, data]);
+          if(!isEdit) {
+            setTopics(prevTopics => [...prevTopics, data]);
+          } else {
+            setTopic(data)
+          }
           setTopicModal(false);
-          toast.success("Topic created successfully!", {
+          toast.success(`Topic ${isEdit ? 'edited' : 'created'} successfully!`, {
             position: "bottom-left",
             autoClose: 5000,
             hideProgressBar: false,
@@ -93,12 +117,12 @@ const TopicModal = ({ user, setTopicModal, setTopics }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white rounded-lg p-6 flex flex-col gap-4 dark:bg-slate-800 w-96">
         <Form>
-          <Title>New Topic</Title>
-          <Select data={courses} name={"Course"} setSelectedId={setCourseId} />
-          <Input placeholder="Title" set={setTitle} />
-          <TextArea placeholder="Message" set={setMessage} />
+          <Title>{isEdit ? 'Edit Topic' : 'New Topic'}</Title>
+          <Select data={courses} name={"Course"} setSelectedId={setCourseId} def={course} />
+          <Input placeholder="Title" set={setTitle} value={title} />
+          <TextArea placeholder="Message" set={setMessage} value={message} />
           <div className="flex justify-between">
-            <Button action={(e) => handleSubmit(e)}>Submit</Button>
+            <Button action={(e) => handleSubmit(e)}>{isEdit ? 'Edit' : 'Submit'}</Button>
             <Button action={() => setTopicModal(false)}>Cancel</Button>
           </div>
         </Form>

@@ -5,7 +5,6 @@ import NavItem from "./NavItem";
 const Nav = () => {
   return (
     <div className="flex gap-10">
-      <NavItem to="home">Home</NavItem>
       <NavItem to="courses">Courses</NavItem>
       <NavItem to="topics">My Topics</NavItem>
       <NavItem to="answers">My Answers</NavItem>

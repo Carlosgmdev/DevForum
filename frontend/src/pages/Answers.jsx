@@ -23,12 +23,12 @@ const Answers = ({user}) => {
   }, []);
 
   return (
-    <div>
+    <div className='flex flex-col gap-4 h-full'>
 
       <Title>My Answers</Title>
 
-      <div>
-      <div className='flex flex-col gap-4'>
+
+      <div className='grid grid-cols-2 gap-4 overflow-y-scroll pr-2 pb-4'>
       {
         answers.map(answer => (
           <AnswerCard
@@ -38,7 +38,7 @@ const Answers = ({user}) => {
         ))
       }
       </div>
-      </div>
+
     </div>
   );
 }

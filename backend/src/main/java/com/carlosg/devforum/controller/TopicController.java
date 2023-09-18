@@ -3,6 +3,7 @@ package com.carlosg.devforum.controller;
 import com.carlosg.devforum.domain.topics.Topic;
 import com.carlosg.devforum.domain.topics.TopicDto;
 import com.carlosg.devforum.service.TopicService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/topics")
+@SecurityRequirement(name = "bearer-key")
 public class TopicController {
 
     @Autowired
@@ -21,6 +23,13 @@ public class TopicController {
     public ResponseEntity<List<TopicDto>> getTopics() {
         return ResponseEntity.ok(
                 topicService.getTopics()
+        );
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TopicDto> getTopic(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                topicService.getTopic(id)
         );
     }
 
@@ -46,14 +55,16 @@ public class TopicController {
         );
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTopic(@PathVariable Long id) {
+        topicService.deleteTopic(id);
+        return ResponseEntity.noContent().build();
+    }
 
-    /*
-    @PostMapping
-    public ResponseEntity<List<TopicDto>> createTopics(@RequestBody @Valid List<Topic> topics) {
+    @PatchMapping("/{id}")
+    public ResponseEntity<TopicDto> changeStatus(@PathVariable Long id) {
         return ResponseEntity.ok(
-                topicService.createTopics(topics)
+                topicService.changeStatus(id)
         );
     }
-     */
-
 }

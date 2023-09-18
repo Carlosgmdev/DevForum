@@ -10,7 +10,7 @@ const Auth = ({ user }) => {
 
   useEffect(() => {
     if (user.id) {
-      navigate("/dashboard/home");
+      navigate("/dashboard/topics");
     } else {
       navigate("/login");
     }

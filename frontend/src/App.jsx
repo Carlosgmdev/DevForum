@@ -7,9 +7,9 @@ import Dashboard from "./Layout/Dashboard";
 import Courses from "./pages/Courses";
 import Topics from "./pages/Topics";
 import Answers from "./pages/Answers";
-import Home from "./pages/Home";
 import Course from "./pages/Course";
 import NotFound from "./pages/NotFound";
+import Topic from "./pages/Topic";
 
 const App = () => {
 
@@ -24,10 +24,10 @@ const App = () => {
           <Route path="signup" element={<Signup/>}/>
         </Route>
         <Route path="/dashboard/" element={<Dashboard user={user} setUser={setUser}/>}>
-          <Route path="home" element={<Home user={user} />} />
           <Route path="courses" element={<Courses user={user}/>} />
           <Route path="courses/:courseId" element={<Course user={user}/>} />
           <Route path="topics" element={<Topics user={user} />}/>
+          <Route path="topics/:topicId" element={<Topic user={user}/>} />
           <Route path="answers" element={<Answers user={user}/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />

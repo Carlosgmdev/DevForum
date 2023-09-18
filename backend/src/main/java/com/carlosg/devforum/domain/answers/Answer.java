@@ -3,11 +3,11 @@ package com.carlosg.devforum.domain.answers;
 import com.carlosg.devforum.domain.topics.Topic;
 import com.carlosg.devforum.domain.users.User;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 
@@ -35,4 +35,7 @@ public class Answer {
     @ManyToOne
     private Topic topic;
 
+    public void setCreated_at(LocalDateTime now) {
+        this.created_at = now;
+    }
 }

@@ -25,7 +25,7 @@ const Login = ({setUser}) => {
       .then(data => {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data))
-        navigate('/dashboard/home');
+        navigate('/dashboard/topics');
       })
       .catch(error => {
         toast.error("Invalid username or password!", {

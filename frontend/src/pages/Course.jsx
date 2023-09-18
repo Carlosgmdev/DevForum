@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Topic from '../components/TopicCard';
 import Title from '../components/Title';
+import Button from '../components/Button';
+import TopicModal from '../components/TopicModal';
 
 const Course = ({user}) => {
   const { courseId } = useParams();
   const [course, setCourse] = useState({});
   const [topics, setTopics] = useState([]);
-  const {id, username, email, token} = user;
+  const {token} = user;
+  const [topicModal, setTopicModal] = useState(false);
 
   useEffect(() => {  
     fetch(`http://localhost:8080/courses/${courseId}`, {
@@ -37,12 +40,10 @@ const Course = ({user}) => {
 
   return (
     <div className='flex flex-col gap-4 h-full'>
+      {topicModal && (<TopicModal user={user} setTopicModal={setTopicModal} setTopics={setTopics} defCourse={course}/>)}
       <div className='flex justify-between items-center'>
         <Title>{`Topics - ${name}`}</Title>
-        <Link 
-          className="rounded-lg cursor-pointer bg-slate-700 transition-colors hover:bg-slate-800 text-white px-4 py-2">
-          New Topic
-        </Link>
+        <Button action={(e) => setTopicModal(true)} >New Topic</Button>
       </div>
 
       <div className='flex flex-col  overflow-y-scroll gap-4 pr-2 pb-4'>

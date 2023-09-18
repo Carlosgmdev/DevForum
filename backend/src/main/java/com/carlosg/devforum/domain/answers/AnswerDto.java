@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public record AnswerDto(
         Long id,
-        String message,
+        String answer,
         LocalDateTime created_at,
         UserDto user,
         TopicAnswerDto topic

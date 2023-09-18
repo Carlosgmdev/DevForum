@@ -1,6 +1,5 @@
 package com.carlosg.devforum.domain.topics;
 
-
 import com.carlosg.devforum.domain.courses.Course;
 import com.carlosg.devforum.domain.users.User;
 import jakarta.persistence.*;
